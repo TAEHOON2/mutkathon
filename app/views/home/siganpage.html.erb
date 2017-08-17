@@ -1,5 +1,5 @@
 <h1>이 주소를 복사하여 시간 함께 맞추고 싶은 새끼들에게 뿌려라</h1>
-<h2>yakdok-rails-five-ahnroonjang.c9users.io/home/siganpage/<%=@yakdok%></h2>
+<h2>yakdok-rails-five-ahnroonjang.c9users.io/home/siganpage/<%= @myroom.roomnumber%></h2>
 <br>
 
 
@@ -7,10 +7,13 @@
 <p> 되는 시간을 체크/드래그해라</p>
 <hr>
 <p>테 이 블</p>
-<%= @chosensigan %>
+<%= @chosensigan = "" %>
+<%= @chosensigan = "234/13/15/178/154/124" %>
 <hr>
 
 <%= form_tag(home_siganyakdokcreate_path ) do %>
+<%= hidden_field_tag "yakdokroom", @yakdok %>
+<%= hidden_field_tag "sigan", @chosensigan %>
   <%= submit_tag("완료했다") %>
-  <%= link_to 'submit', "/home/siganresult", :onclick=>"document.getElementById('form_id').submit()" %>
+  <%= button_to "추가하기", home_siganyakdokcreate_path, method:"post" %>
 <% end %>

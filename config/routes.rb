@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   
   # get 'home/gyosipage'
   # get 'home/siganpage'  #처음 약속 create후 redirection 할 주소 지정
-  get 'home/gyosipage/:yakdokroom_id'=> 'home#gyosipage'
-  get 'home/siganpage/:yakdokroom_id'=> 'home#siganpage'
+  get "home/gyosipage/:yakdokroom_roomnumber"=> 'home#gyosipage'
+  # get 'home/gyosipage/:yakdokroom_id'=> 'home#gyosipage'
+  get 'home/siganpage/:yakdokroom_roomnumber'=> 'home#siganpage'
   
  
   post 'home/gyosiyakdokcreate'

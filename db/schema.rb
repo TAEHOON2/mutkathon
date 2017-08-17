@@ -14,11 +14,10 @@ ActiveRecord::Schema.define(version: 20170815114621) do
 
   create_table "gyosiyakdoks", force: :cascade do |t|
     t.integer "count", default: 0
-    t.integer "gyosi"
-    t.integer "yakdokroom_id"
+    t.text "gyosi"
+    t.string "roomnumber"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["yakdokroom_id"], name: "index_gyosiyakdoks_on_yakdokroom_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -30,11 +29,10 @@ ActiveRecord::Schema.define(version: 20170815114621) do
 
   create_table "siganyakdoks", force: :cascade do |t|
     t.integer "count", default: 0
-    t.integer "sigan"
-    t.integer "yakdokroom_id"
+    t.text "sigan"
+    t.string "roomnumber"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["yakdokroom_id"], name: "index_siganyakdoks_on_yakdokroom_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,8 +53,8 @@ ActiveRecord::Schema.define(version: 20170815114621) do
   end
 
   create_table "yakdokrooms", force: :cascade do |t|
-    t.integer "roomnumber"
-    t.string "type"
+    t.string "roomnumber"
+    t.string "yakdoktype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

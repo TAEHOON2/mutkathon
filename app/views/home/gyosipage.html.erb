@@ -3,15 +3,16 @@
 </header>
 
 <article>
-  <p class="text3 tableheader">아래의 주소를 복사해 약속을 똑똑하게 잡아보세요!</p>
-  <p class="text4">https://oldtestbed-leopoldshim.c9users.io/home/gyosipage?yakdok=<%= @yakdok %></p>
+  <p class="text3 tableheader">아래의 주소를 친구들에게 보내서 함께 약똑을 잡아보세요!</p>
+  <p class="text4">https://yakdok-rails-five-ahnroonjang.c9users.io/home/gyosipage/<%= @myroom.roomnumber%></p>
 </article>
 
+<hr>
 
-
+<h3>가능한 시간을 드래그하고 완료버튼 눌러라</h3>
 <div class="container-for-table">
   <%= form_tag(home_gyosiyakdokcreate_path) do %>
-
+ <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
     <table class="table" id="timetable">
           <thead>
             <tr class="thead-color">
@@ -107,7 +108,7 @@
    
           </tbody>
     </table>
-    
+  
     <div class="actions col-12">
       <div class="row">
         <button id="signup_btn" class="btn btn-lg btn-block">
@@ -116,6 +117,12 @@
     </div>
     <% end %>
 </div>
+
+  <%= form_tag home_gyosiyakdokcreate_path do %>
+    <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
+  
+    <%= button_to "추가하기", home_gyosiyakdokcreate_path, method:"post" %>
+   <% end %>
 
 
 

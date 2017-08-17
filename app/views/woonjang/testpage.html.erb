@@ -34,6 +34,8 @@
 
 <script>
 jQuery(function($){
+	var yesnum = 1;
+	var nonum = 0;
 	$( document )
 		.drag("start",function( ev, dd ){
 			return $('<div class="selection" />')
@@ -51,20 +53,23 @@ jQuery(function($){
 		.drag("end",function( ev, dd ){
 			$( dd.proxy ).remove();
 		});
+		
 	$('.drop')
 		.drop("start",function(){
-			$( this ).addClass("active");
+			$( this ).addClass("active").html("1");
+		
 		})
 		.drop(function( ev, dd ){
-			$( this ).toggleClass("dropped");
-		})
+			$( this ).toggleClass("dropped").html("0");
+		})//빨간색으로 변하게 해주는 
 		.drop("end",function(){
 			$( this ).removeClass("active");
-		});
+		});//지우는 액션.
 	$.drop({ multi: true });
 	
 	// var returnNum = $('.drop').addClass("available").append("1");
 	// console.log(returnNum)
+	//active와 dropped api확인해봐야 함. .text넣는 것 고려. 빼는 것도.
 });	
 </script>
 
