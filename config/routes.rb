@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post 'home/siganpagecreate'
   post 'home/gyosipagecreate' #root page에서 교시/시간으로 찾기 누르면 모델에 새로운 방 만들어주는 것
   
-  get 'home/gyosipage'
-  get 'home/siganpage'  #처음 약속 create후 redirection 할 주소 지정
+  # get 'home/gyosipage'
+  # get 'home/siganpage'  #처음 약속 create후 redirection 할 주소 지정
   get 'home/gyosipage/:yakdokroom_id'=> 'home#gyosipage'
   get 'home/siganpage/:yakdokroom_id'=> 'home#siganpage'
   

@@ -3,22 +3,29 @@ class HomeController < ApplicationController
   end
   
   def gyosipage #교시 테이블 나오는 페이지
-    @yakdok = params[:yakdok]
+    @yakdok = params[:yakdokroom_id]
   end
   
   
   def siganpage # 시간 테이블 나오는 페이지
-    @yakdok = params[:yakdok]
-    @a = []
-    @a << 34 << 78 << 506 << 425
+    @yakdok = params[:yakdokroom_id]
+    @chosen = []
+    @chosensigan = []
+    @chosen<< 34 << 78 << 506 << 425
+    @chosen.each do |x|
+    @chosensigan << [(x - 1) / 96 , (x - 1) % 96]
+    
+  end
+    
   end
   
   def gyosipagecreate #교시로 검색하기 눌렀을때 Yakdokroom 모델에 Yakdok 하나 create 시키는 액션 
     
     @yakdok= Yakdokroom.create()
-    @yakdok.update(roomnumber: @yakdok.id)
+    @yakdok.update(roomnumber: @yakdok.id,type:"gyosiyakdok")
 
     # redirect_to home_gyosipage_path(:yakdok => @yakdok.id)     
+    
     redirect_to "/home/gyosipage/#{@yakdok.id}"
   end
   
@@ -29,6 +36,7 @@ class HomeController < ApplicationController
     @yakdok= Yakdokroom.new
     @yakdok.save
     @yakdok.roomnumber=@yakdok.id
+    @yakdok.type= "siganyakdok"
     @yakdok.save
     
     redirect_to "/home/siganpage/#{@yakdok.id}"

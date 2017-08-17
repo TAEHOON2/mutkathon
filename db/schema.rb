@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170815114621) do
 
   create_table "yakdokrooms", force: :cascade do |t|
     t.integer "roomnumber"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
