@@ -62,7 +62,7 @@ class HomeController < ApplicationController
     #Siganyakdok.where("yakdokroom LIKE '%#{params[:yakdokroom]}%'")
       @each = []
       @chose = ""
-      @each = ["123/653/234/513" , "321/325/314/541", "132/235/541/234"] #if yakdokroom이 랜덤 일치하면 가져오게 하면 됨.
+      @each = ["123/653/234/513" , "421/425/214/341", "213/335/641/274"] #if yakdokroom이 랜덤 일치하면 가져오게 하면 됨.
       @each.each do |x|
       @chose = x + "/" + @chose
       end
@@ -79,14 +79,9 @@ class HomeController < ApplicationController
     for i in 0..@nalja do
     @yakdokmatrix << @a
     end
-    
-    @b = []
-        @chosensigan.each do |x|
-        @b << x[0]
-    #   for i in 0..1 do
-    # @yakdokmatrix[[x[[i][0]]]][x[[i][1]]]] = @yakdokmatrix[[x[[i][0]]][x[[i][1]]] + 1
-    # end
-    end
+      @chosensigan.each do |x|
+      @yakdokmatrix[x[0]][x[1]] = @yakdokmatrix[x[0]][x[1]] + 1
+     end
     
     
     
