@@ -34,8 +34,6 @@
 
 <script>
 jQuery(function($){
-	var yesnum = 1;
-	var nonum = 0;
 	$( document )
 		.drag("start",function( ev, dd ){
 			return $('<div class="selection" />')
@@ -56,16 +54,16 @@ jQuery(function($){
 		
 	$('.drop')
 		.drop("start",function(){
-			$( this ).addClass("active").html("1");
-		
+			$( this ).addClass("active");
 		})
 		.drop(function( ev, dd ){
-			$( this ).toggleClass("dropped").html("0");
-		})//빨간색으로 변하게 해주는 
+			$( this ).toggleClass("dropped");
+		})
 		.drop("end",function(){
 			$( this ).removeClass("active");
-		});//지우는 액션.
+		});
 	$.drop({ multi: true });
+	$.drop("click", function)
 	
 	// var returnNum = $('.drop').addClass("available").append("1");
 	// console.log(returnNum)

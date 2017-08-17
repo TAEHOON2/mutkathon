@@ -9,11 +9,14 @@
 <p>테 이 블</p>
 <%= @chosensigan = "" %>
 <%= @chosensigan = "234/13/15/178/154/124" %>
+<%= @nalja = "" %>
+<%= @nalja = 7 %> <!--며칠인지 추가-->
 <hr>
 
-<%= form_tag(home_siganyakdokcreate_path ) do %>
-<%= hidden_field_tag "yakdokroom", @yakdok %>
-<%= hidden_field_tag "sigan", @chosensigan %>
-  <%= submit_tag("완료했다") %>
-  <%= button_to "추가하기", home_siganyakdokcreate_path, method:"post" %>
-<% end %>
+
+  <%= form_tag home_siganyakdokcreate_path do %>
+    <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
+    <%= hidden_field_tag "sigan", @chosensigan %>
+    <%= hidden_field_tag "count", @nalja %>
+    <%= button_to "추가하기", home_siganyakdokcreate_path, method:"post" %>
+   <% end %>

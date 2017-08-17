@@ -1,18 +1,31 @@
-<header class="header">
-    <a href="/" class="logo"><%= image_tag("logo5.png") =%> </a>
+<header id="main">
+  <div class="container cover">
+    <div class="heading-text">
+      <h1>복잡한 팀플과 밥약</h1>
+      <h1>그 외 다른 약속시간들을</h1>
+      <h1>편하게 약똑으로 잡아보세요</h1>
+    </div>
+    <div class= "checkbox_main">
+      <button class="hvr-sweep-to-right btn-choice" onclick="$show_btn_sigan()">시간 기반으로
+      <button class="hvr-sweep-to-right btn-choice" onclick="$show_btn_gyosi()">교시 기반으로
+    </div>
+    <%= button_to "약똑하기", home_siganpagecreate_path,:class => "btn-main", :id =>"btn-sigan", :method => :post %>
+    <%= button_to "약똑하기", gyosiyakdoks_gyosipagecreate_path,:class => "btn-main", :id =>"btn-gyosi", :method => :post %>
+  </div>
 </header>
+<script>
+  $(document).ready(function(){
+     $("#btn-gyosi").hide();  
+  });
+  function $show_btn_sigan(){
+     $("#btn-gyosi").hide();  
+     $("#btn-sigan").show();
+  };
 
-<article>
-<%= button_to "교시로 검색", home_gyosipagecreate_path, method:"post" %>
-<%= button_to "시간으로 검색", home_siganpagecreate_path, method:"post" %>
-</article>
+  function $show_btn_gyosi(){
+     $("#btn-gyosi").show();  
+     $("#btn-sigan").hide();
+  };
 
 
-<div class="row justify-content-between signchoice_btn">
-          <div class="col-5 text-left">
-            <%= link_to '로그인', new_user_session_path, :id => "text5" %>
-          </div>
-          <div class="col-5 text-right text5">
-            <%= link_to '아이디/비밀번호 찾기', new_user_password_path,  :id => "text5" %>
-          </div>
-        </div>
+</script>

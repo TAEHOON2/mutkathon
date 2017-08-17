@@ -44,44 +44,53 @@ class HomeController < ApplicationController
   end
   
   def gyosiyakdokcreate
-    @gyosiresult = Gyosiyakdok.create(count: "1", gyosi: "월요일 1교시", roomnumber: params[:roomnumber])
+    @gyosiresult = Gyosiyakdok.create(count: params[:count], gyosi: "월요일 1교시", roomnumber: params[:roomnumber])
+    redirect_to controller: 'home', action: 'gyosiresult', yakdokroom: @myroom
     
   end
   def siganyakdokcreate
-    
-    @siganyakdok= Siganyakdok.create(count:"1", sigan: params[:sigan])
-    redirect_to controller: 'home', action: 'siganresult', id: 3, yakdokroom: '4'
+    @myroom = params[:roomnumber]
+    @nalja = params[:nalja]
+    @sigan = "13/224/541/22/283/584/363"
+    @siganyakdok= Siganyakdok.create(count:"1", sigan: @sigan, roomnumber: params[:roomnumber])
+    redirect_to controller: 'home', action: 'siganresult', yakdokroom: @myroom, 
   end
   
   def gyosiresult
+
   end
   
   def siganresult
-    
+      @myroom = params[:yakdokroom]
     #앞에서 먼저 받은 내용물을 parsing
-    #Siganyakdok.where("yakdokroom LIKE '%#{params[:yakdokroom]}%'")
-      @each = []
+      @k = Siganyakdok.all
+      @sum = []
+      @k.each do |x|
+      if x["roomnumber"] == @myroom
+      @sum << x["sigan"]
+      end
+      end 
       @chose = ""
-      @each = ["123/653/234/513" , "421/425/214/341", "213/335/641/274"] #if yakdokroom이 랜덤 일치하면 가져오게 하면 됨.
-      @each.each do |x|
+      @sum.each do |x|
       @chose = x + "/" + @chose
       end
       @choseparse = @chose.split('/')
-      @chosensigan = []
+      
       @choseparse.each do |x|
-      @chosensigan << [(x.to_i - 1) / 96 , (x.to_i - 1) % 96]  
-  end
-    
-    @yakdokroom = params[:yakdokroom]
-    @a = Array.new(96) {|i| 0 }
-    @yakdokmatrix = []
-    @nalja = 7 - 1 #7 대신 넘겨준 총 며칠 수
-    for i in 0..@nalja do
-    @yakdokmatrix << @a
-    end
-      @chosensigan.each do |x|
-      @yakdokmatrix[x[0]][x[1]] = @yakdokmatrix[x[0]][x[1]] + 1
-     end
+        for i in 1..
+      # @chosensigan = []
+      # @choseparse.each do |x|
+  #     @chosensigan << [(x.to_i - 1) / 96 , (x.to_i - 1) % 96]  
+  # end
+  #   @a = [0] * 96
+  #   @yakdokmatrix = []
+  #   @nalja = 7 - 1 #7 대신 넘겨준 총 며칠 수
+  #   for i in 0..@nalja do
+  #   @yakdokmatrix << @a
+  #   end
+  #     @chosensigan.each do |x|
+  #     @yakdokmatrix[x[0]][x[1]] = @yakdokmatrix[x[0]][x[1]] + 1
+  #   end
     
     
     

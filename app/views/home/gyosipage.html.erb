@@ -27,83 +27,83 @@
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>수업있땅</td>
-              <td>수업있당</td>
-              <td>수업</td>
-              <td>쉅쉅</td>
-              <td>수업</td>
+              <td> <%= check_box_tag(:period1) %></td>
+              <td> <%= check_box_tag(:period11) %></td>
+              <td> <%= check_box_tag(:period21) %></td>
+              <td> <%= check_box_tag(:period31) %></td>
+              <td> <%= check_box_tag(:period41) %></td>
             </tr>
             <tr>
               <th scope="row">2</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period2) %></td>
+              <td> <%= check_box_tag(:period12) %></td>
+              <td> <%= check_box_tag(:period22) %></td>
+              <td> <%= check_box_tag(:period32) %></td>
+              <td> <%= check_box_tag(:period42) %></td>
             </tr>
             <tr>
               <th scope="row">3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period3) %></td>
+              <td> <%= check_box_tag(:period13) %></td>
+              <td> <%= check_box_tag(:period23) %></td>
+              <td> <%= check_box_tag(:period33) %></td>
+              <td> <%= check_box_tag(:period43) %></td>
             </tr>
             <tr>
               <th scope="row">4</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period4) %></td>
+              <td> <%= check_box_tag(:period14) %></td>
+              <td> <%= check_box_tag(:period24) %></td>
+              <td> <%= check_box_tag(:period34) %></td>
+              <td> <%= check_box_tag(:period44) %></td>
             </tr>
             <tr>
               <th scope="row">5</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period5) %></td>
+              <td> <%= check_box_tag(:period15) %></td>
+              <td> <%= check_box_tag(:period25) %></td>
+              <td> <%= check_box_tag(:period35) %></td>
+              <td> <%= check_box_tag(:period45) %></td>
             </tr>
             <tr>
               <th scope="row">6</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period6) %></td>
+              <td> <%= check_box_tag(:period16) %></td>
+              <td> <%= check_box_tag(:period26) %></td>
+              <td> <%= check_box_tag(:period36) %></td>
+              <td> <%= check_box_tag(:period46) %></td>
             </tr>
             <tr>
               <th scope="row">7</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period7) %></td>
+              <td> <%= check_box_tag(:period17) %></td>
+              <td> <%= check_box_tag(:period27) %></td>
+              <td> <%= check_box_tag(:period37) %></td>
+              <td> <%= check_box_tag(:period47) %></td>
             </tr>
             <tr>
               <th scope="row">8</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period8) %></td>
+              <td> <%= check_box_tag(:period18) %></td>
+              <td> <%= check_box_tag(:period28) %></td>
+              <td> <%= check_box_tag(:period38) %></td>
+              <td> <%= check_box_tag(:period48) %></td>
             </tr>
             <tr>
               <th scope="row">9</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period9) %></td>
+              <td> <%= check_box_tag(:period19) %></td>
+              <td> <%= check_box_tag(:period29) %></td>
+              <td> <%= check_box_tag(:period39) %></td>
+              <td> <%= check_box_tag(:period49) %></td>
             </tr>
             <tr>
               <th scope="row">10</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> <%= check_box_tag(:period10) %></td>
+              <td> <%= check_box_tag(:period20) %></td>
+              <td> <%= check_box_tag(:period30) %></td>
+              <td> <%= check_box_tag(:period40) %></td>
+              <td> <%= check_box_tag(:period0) %></td>
             </tr>
    
           </tbody>
@@ -112,7 +112,7 @@
     <div class="actions col-12">
       <div class="row">
         <button id="signup_btn" class="btn btn-lg btn-block">
-          <%= submit_tag "완료했다", :id => "signup_input" %></button>
+          <%= button_to "추가하기", home_gyosiyakdokcreate_path, method:"post" %></button>
       </div>
     </div>
     <% end %>
@@ -120,7 +120,7 @@
 
   <%= form_tag home_gyosiyakdokcreate_path do %>
     <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
-  
+  <%= check_box_tag(:period10) %>
     <%= button_to "추가하기", home_gyosiyakdokcreate_path, method:"post" %>
    <% end %>
 

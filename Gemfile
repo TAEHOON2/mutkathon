@@ -24,7 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -47,6 +48,7 @@ end
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'omniauth-facebook'
 
 gem 'jquery-rails'
 gem 'rails_db', '~> 1.6'
