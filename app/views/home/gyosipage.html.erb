@@ -1,0 +1,123 @@
+<header class="header">
+    <a href="/" class="logo"><%= image_tag("logo5.png") =%> </a>
+</header>
+
+<article>
+  <p class="text3 tableheader">아래의 주소를 복사해 약속을 똑똑하게 잡아보세요!</p>
+  <p class="text4">https://oldtestbed-leopoldshim.c9users.io/home/gyosipage?yakdok=<%= @yakdok %></p>
+</article>
+
+
+
+<div class="container-for-table">
+  <%= form_tag(home_gyosiyakdokcreate_path) do %>
+
+    <table class="table" id="timetable">
+          <thead>
+            <tr class="thead-color">
+              <th class="timenumber">교시</th>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>수업있땅</td>
+              <td>수업있당</td>
+              <td>수업</td>
+              <td>쉅쉅</td>
+              <td>수업</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">10</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+   
+          </tbody>
+    </table>
+    
+    <div class="actions col-12">
+      <div class="row">
+        <button id="signup_btn" class="btn btn-lg btn-block">
+          <%= submit_tag "완료했다", :id => "signup_input" %></button>
+      </div>
+    </div>
+    <% end %>
+</div>
+
+
+
+
+ 

@@ -1,0 +1,36 @@
+<div id="container">
+    <div class="text-center hello">
+        <a href="#" class="logo logo-big"><%= image_tag("logo5.png") =%></a>
+        <p class="text3 hello_text">복잡한 시간 약속<br>약똑으로 간편하게!</p>
+    </div>
+    
+    <div class="login">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+             <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "이메일" %>
+        </div>
+        <div class="field">
+             <%= f.password_field :password, class: "form-control", autocomplete: "off",  placeholder: "비밀번호" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+        <div class="form-check text-right">
+          <%= f.check_box :remember_me, class: "form-check-label" %>
+          <%= f.label "내 정보 기억하기" %>
+        </div>
+        <% end %>
+        <div class="actions col-12">
+            <div class="row">
+              <button id="signup_btn"class="btn btn-lg btn-block"><%= f.submit t('.sign_in'), id: 'signup_input' %></button>
+            </div>
+        </div>
+      <% end %>
+      <div class="row justify-content-between signchoice_btn">
+            <div class="col-5 text-left">
+                <%= link_to '회원가입', new_user_registration_path, :id => "text5" %>
+            </div>
+            <div class="col-5 text-right text5">
+                <%= link_to '아이디/비밀번호 찾기', new_user_password_path,  :id => "text5" %>
+            </div>
+        </div>
+    </div>    
+</div>

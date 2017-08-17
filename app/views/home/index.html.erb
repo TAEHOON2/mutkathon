@@ -1,0 +1,18 @@
+<header class="header">
+    <a href="/" class="logo"><%= image_tag("logo5.png") =%> </a>
+</header>
+
+<article>
+<%= button_to "교시로 검색", home_gyosipagecreate_path, method:"post" %>
+<%= button_to "시간으로 검색", home_siganpagecreate_path, method:"post" %>
+</article>
+
+
+<div class="row justify-content-between signchoice_btn">
+          <div class="col-5 text-left">
+            <%= link_to '로그인', new_user_session_path, :id => "text5" %>
+          </div>
+          <div class="col-5 text-right text5">
+            <%= link_to '아이디/비밀번호 찾기', new_user_password_path,  :id => "text5" %>
+          </div>
+        </div>

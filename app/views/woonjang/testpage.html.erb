@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<title>ThreeDubMedia &middot; jquery.event.drop</title>
+</head>
+<body>
+
+<h1>약똑 table</h1>
+
+	<div class ="drop"></div>
+	<div class ="drop">월</div>
+	<div class ="drop">화</div>
+	<div class ="drop">수</div>
+	<div class ="drop">목</div>
+	<div class ="drop">금</div>
+	<div class ="drop">토</div>
+	<div class ="drop">일</div>
+<div class="container">
+	<div class ="drop">1교시</div>
+	<div class ="drop">2교시</div>
+	<div class ="drop">3교시</div>
+	<div class ="drop">4교시</div>
+	<div class ="drop">5교시</div>
+	<div class ="drop">6교시</div>
+	<div class ="drop">7교시</div>
+	<div class ="drop">8교시</div>
+	<div class ="drop">9교시</div>
+	<% for i in 1..63 do %>
+	 <div class="drop"></div>
+	<% end %>
+</div>
+
+<script>
+jQuery(function($){
+	$( document )
+		.drag("start",function( ev, dd ){
+			return $('<div class="selection" />')
+				.css('opacity', .65 )
+				.appendTo( document.body );
+		})
+		.drag(function( ev, dd ){
+			$( dd.proxy ).css({
+				top: Math.min( ev.pageY, dd.startY ),
+				left: Math.min( ev.pageX, dd.startX ),
+				height: Math.abs( ev.pageY - dd.startY ),
+				width: Math.abs( ev.pageX - dd.startX )
+			});
+		})
+		.drag("end",function( ev, dd ){
+			$( dd.proxy ).remove();
+		});
+	$('.drop')
+		.drop("start",function(){
+			$( this ).addClass("active");
+		})
+		.drop(function( ev, dd ){
+			$( this ).toggleClass("dropped");
+		})
+		.drop("end",function(){
+			$( this ).removeClass("active");
+		});
+	$.drop({ multi: true });
+	
+	// var returnNum = $('.drop').addClass("available").append("1");
+	// console.log(returnNum)
+});	
+</script>
+
+</body>
+</html>
