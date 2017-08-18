@@ -1,3 +1,129 @@
+<div class="container-for-table">
+
+    <table class="table" id="timetable" style="color:black;">
+          <thead>
+            <tr class="thead-color">
+              <th class="timenumber">교시</th>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td> <%= @besttime[0].count%> </td>
+              <td> <%= @besttime[10].count%></td>
+              <td> <%= @besttime[20].count%></td>
+              <td> <%= @besttime[30].count%></td>
+              <td> <%= @besttime[40].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td> <%= @besttime[1].count%></td>
+              <td> <%= @besttime[11].count%></td>
+              <td> <%= @besttime[21].count%></td>
+              <td> <%= @besttime[31].count%></td>
+              <td> <%= @besttime[41].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td> <%= @besttime[2].count%></td>
+              <td> <%= @besttime[12].count%></td>
+              <td> <%= @besttime[22].count%></td>
+              <td> <%= @besttime[32].count%></td>
+              <td> <%= @besttime[42].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td> <%= @besttime[3].count%></td>
+              <td> <%= @besttime[13].count%></td>
+              <td> <%= @besttime[23].count%></td>
+              <td> <%= @besttime[33].count%></td>
+              <td> <%= @besttime[43].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td> <%= @besttime[4].count%></td>
+              <td> <%= @besttime[14].count%></td>
+              <td> <%= @besttime[24].count%></td>
+              <td> <%= @besttime[34].count%></td>
+              <td> <%= @besttime[44].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td> <%= @besttime[5].count%></td>
+              <td> <%= @besttime[15].count%></td>
+              <td> <%= @besttime[25].count%></td>
+              <td> <%= @besttime[35].count%></td>
+              <td> <%= @besttime[45].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td> <%= @besttime[6].count%></td>
+              <td> <%= @besttime[16].count%></td>
+              <td> <%= @besttime[26].count%></td>
+              <td> <%= @besttime[36].count%></td>
+              <td> <%= @besttime[46].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td> <%= @besttime[7].count%></td>
+              <td> <%= @besttime[17].count%></td>
+              <td> <%= @besttime[27].count%></td>
+              <td> <%= @besttime[37].count%></td>
+              <td> <%= @besttime[47].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td><%= @besttime[8].count%></td>
+              <td><%= @besttime[18].count%></td>
+              <td><%= @besttime[28].count%></td>
+              <td><%= @besttime[38].count%></td>
+              <td><%= @besttime[48].count%></td>
+            </tr>
+            <tr>
+              <th scope="row">10</th>
+              <td> <%= @besttime[9].count%></td>
+              <td> <%= @besttime[19].count%></td>
+              <td> <%= @besttime[29].count%></td>
+              <td> <%= @besttime[39].count%></td>
+              <td> <%= @besttime[49].count%></td>
+            </tr>
+   
+          </tbody>
+    </table>
+ 
+    <div class="actions col-12">
+       
+      <div class="row">
+        
+        <button id="signup_btn" class="btn btn-lg btn-block">
+  
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>명예의전당</h1>
 <p>1위: <%=@besttime.all.order(count: :desc)[0].gyosi%>(<%= @besttime.all.order(count: :desc)[0].count%>명)</p>
 <p>2위: <%=@besttime.all.order(count: :desc)[1].gyosi%>(<%= @besttime.all.order(count: :desc)[1].count%>명)</p>

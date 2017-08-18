@@ -399,7 +399,7 @@ class GyosiyakdoksController < ApplicationController
   end
   
   def gyosiresult
-    @gyosiresults= Gyosiyakdok.where(roomnumber: params[:yakdokroom_roomnumber])
+     @gyosiresults= Gyosiyakdok.where(roomnumber: params[:yakdokroom_roomnumber])
     # @besttime=@gyosiresults.all.order(count: :desc)[0].gyosi
      @besttime=@gyosiresults.all
      @blank=@besttime.where.not(count:0)
@@ -407,12 +407,6 @@ class GyosiyakdoksController < ApplicationController
      
   end
 end
-
-
-
-
-
-
 
 
 

@@ -1,5 +1,6 @@
-<div class="container">
+<div id="container">
     <div class="text-center hello">
+        <%= image_tag("logo.png", :class=> "logo logo-big") %>
         <p class="text3 hello_text">복잡한 시간 약속<br>약똑으로 간편하게!</p>
     </div>
     
@@ -27,11 +28,8 @@
             <div class="col-5 text-left">
                 <%= link_to '회원가입', new_user_registration_path, :id => "text5" %>
             </div>
-            <div class="col-5 text-right text5">
+            <div class="col-6 text-right text5">
                 <%= link_to '아이디/비밀번호 찾기', new_user_password_path,  :id => "text5" %>
-            </div>
-            <div class="col-5 text-right text5">
-                <%= link_to '페이스북으로 로그인하기', user_facebook_omniauth_authorize_path,  :id => "text5" %>
             </div>
         </div>
     </div>    
