@@ -13,8 +13,22 @@
  *= require_tree .
  *= require_self
  */
- @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-$main_color : skyblue;
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+$main_color : #4285f4;
 
 html {
   margin:0px;
@@ -54,8 +68,7 @@ nav{
 	height: 150px;
 	font-family: "Noto Sans KR";
   font-weight: bold;
-  font-size:15px;
-	line-height: 1.5;
+	line-height: 50px;
 	letter-spacing: -1.8px;
   color: #ffffff;
   margin-top:130px;
@@ -110,8 +123,8 @@ nav{
   .nav_logo{
     height:40px;
     vertical-align: middle;
-    align-self: stretch;
     padding-left:15px;
+    margin-top:10px;
   }
   .main_login{
     font-family: 'Noto Sans KR';
@@ -122,11 +135,13 @@ nav{
     background-color :transparent;
     color:$main_color;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 700;
     display:inline-block;
-    align-self: flex-end;
-    margin:0 15px 15px 0;
-    
+    margin:15px;
+    line-height:21px !important;
+  }
+  .main_login :hover{
+    border:none;
   }
 }
 .hvr-sweep-to-right {

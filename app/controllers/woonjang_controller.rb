@@ -4,4 +4,7 @@ class WoonjangController < ApplicationController
   
   def jtest
   end
+  
+  def sigangiban
+  end
 end

@@ -1,26 +1,33 @@
 Rails.application.routes.draw do
+  root 'home#index'
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :posts
   
   get 'woonjang/jtest'
   get 'woonjang/testpage'
-  root 'home#index'
+  get 'woonjang/sigangiban'
   
+  post 'gyosiyakdoks/gyosipagecreate'
   post 'home/siganpagecreate'
-  post 'gyosiyakdoks/gyosipagecreate' #root page에서 교시/시간으로 찾기 누르면 모델에 새로운 방 만들어주는 것
+   #root page에서 교시/시간으로 찾기 누르면 모델에 새로운 방 만들어주는 것
   
-  # get 'home/gyosipage'
-  # get 'home/siganpage'  #처음 약속 create후 redirection 할 주소 지정
+
   get "home/gyosipage/:yakdokroom_roomnumber"=> 'home#gyosipage'
-  # get 'home/gyosipage/:yakdokroom_id'=> 'home#gyosipage'
-  get 'home/siganpage/:yakdokroom_roomnumber'=> 'home#siganpage'
+  get 'home/siganpage/:yakdokroom_roomnumber'=> 'home#siganpage' #고유의 아이디를 가진 room으로 이동
   
-  post 'home/gyosiyakdokcreate'
+  post 'gyosiyakdoks/gyosiyakdokcreate'
   post 'home/siganyakdokcreate' #시간 체크해서 제출 누르면 gyosiyakdok 또는 siganyakdok에 저장되는 액션
   
-  get 'home/gyosiresult'  #redirection(개별 교시약속에 대한 result보여주기)
+  get 'gyosiyakdoks/gyosiresult/:yakdokroom_roomnumber' => 'gyosiyakdoks#gyosiresult' #redirection(개별 교시약속에 대한 result보여주기)
   get 'home/siganresult'  #redirection(개별 시간약속에 대한 result보여주기)
+  
+  post 'home/usersigancreate'
+  get 'home/usersiganinput'
+  
+  
+  
+  
   
   # get 'home/gyosiresult/'
   # The priority is based upon order of creation: first created -> highest priority.

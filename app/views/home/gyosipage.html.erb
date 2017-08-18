@@ -1,3 +1,4 @@
+<%= form_tag gyosiyakdoks_gyosiyakdokcreate_path do %>
 <header class="header">
     <a href="/" class="logo"><%= image_tag("logo5.png") =%> </a>
 </header>
@@ -11,8 +12,7 @@
 
 <h3>가능한 시간을 드래그하고 완료버튼 눌러라</h3>
 <div class="container-for-table">
-  <%= form_tag(home_gyosiyakdokcreate_path) do %>
- <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
+
     <table class="table" id="timetable">
           <thead>
             <tr class="thead-color">
@@ -103,26 +103,25 @@
               <td> <%= check_box_tag(:period20) %></td>
               <td> <%= check_box_tag(:period30) %></td>
               <td> <%= check_box_tag(:period40) %></td>
-              <td> <%= check_box_tag(:period0) %></td>
+              <td> <%= check_box_tag(:period50) %></td>
             </tr>
    
           </tbody>
     </table>
-  
+ 
     <div class="actions col-12">
+       
       <div class="row">
+        
         <button id="signup_btn" class="btn btn-lg btn-block">
-          <%= button_to "추가하기", home_gyosiyakdokcreate_path, method:"post" %></button>
+  
       </div>
     </div>
-    <% end %>
-</div>
 
-  <%= form_tag home_gyosiyakdokcreate_path do %>
-    <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
-  <%= check_box_tag(:period10) %>
-    <%= button_to "추가하기", home_gyosiyakdokcreate_path, method:"post" %>
-   <% end %>
+</div>
+     <%= hidden_field_tag "roomnumber", @myroom.roomnumber%>
+     <%= button_to "추가하기",gyosiyakdoks_gyosiyakdokcreate_path, method:"post" %></button>
+     <% end %>
 
 
 

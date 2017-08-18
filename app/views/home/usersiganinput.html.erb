@@ -1,0 +1,19 @@
+<div>안녕하세요! 누구누구님!</div> <!--#{current_user.id}를 누구누구에 넣으면 됨-->
+<h1>자신의 시간 정보를 입력하세요!</h1>
+
+<br>
+
+<p> 되는 시간을 체크/드래그해라</p>
+<hr>
+<p>테 이 블</p>
+<!--if 구문 추가해서 만약 로그인 상태라면 본인 시간 사용할 수 있게 하도록! 기존 정보 사용이 가능합니다 라는 내용 추가
+및 @chosensigan에 기존 정보 가져오게 할 것-->
+<% @chosensigan = "" %>
+<%= @chosensigan = "24/13/15/178/154/124" %>
+<hr>
+
+
+  <%= form_tag home_usersigancreate_path do %>
+    <%= hidden_field_tag "sigan", @chosensigan %>
+    <%= button_to "저장하기", home_usersigancreate_path, method:"post" %>
+   <% end %>

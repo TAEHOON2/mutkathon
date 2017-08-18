@@ -7,31 +7,6 @@
 </head>
 <body>
 
-<h1>약똑 table</h1>
-
-	<div class ="drop"></div>
-	<div class ="drop">월</div>
-	<div class ="drop">화</div>
-	<div class ="drop">수</div>
-	<div class ="drop">목</div>
-	<div class ="drop">금</div>
-	<div class ="drop">토</div>
-	<div class ="drop">일</div>
-<div class="container">
-	<div class ="drop">1교시</div>
-	<div class ="drop">2교시</div>
-	<div class ="drop">3교시</div>
-	<div class ="drop">4교시</div>
-	<div class ="drop">5교시</div>
-	<div class ="drop">6교시</div>
-	<div class ="drop">7교시</div>
-	<div class ="drop">8교시</div>
-	<div class ="drop">9교시</div>
-	<% for i in 1..63 do %>
-	 <div class="drop"></div>
-	<% end %>
-</div>
-
 <script>
 jQuery(function($){
 	$( document )
@@ -62,14 +37,42 @@ jQuery(function($){
 		.drop("end",function(){
 			$( this ).removeClass("active");
 		});
+			
 	$.drop({ multi: true });
-	$.drop("click", function)
+	
+	$("#selectBtn").click(function(){
+		var result = $(".dropped").text();
+		var array = new Array();
+		array.push(result);
+		 $("#resultNum").val(array);
+	});
 	
 	// var returnNum = $('.drop').addClass("available").append("1");
 	// console.log(returnNum)
 	//active와 dropped api확인해봐야 함. .text넣는 것 고려. 빼는 것도.
 });	
+
 </script>
+
+<h1>약똑 table</h1>
+
+<form>
+	name: <input type="text" id="resultNum" value="" />
+</form>
+<button type="button" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
+
+<p id="feedback">
+<span>You've selected:</span> <span class="selected">none</span>.
+</p>
+
+
+<div class="container" id="select-table">
+ 	<% for i in 1..40 do %>
+	 <div class="drop" ><%="#{i}"%>/</div>
+	<% end %>	
+</div>
+
+
 
 </body>
 </html>

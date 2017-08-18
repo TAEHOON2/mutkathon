@@ -1,0 +1,11 @@
+<h1>명예의전당</h1>
+<p>1위: <%=@besttime.all.order(count: :desc)[0].gyosi%>(<%= @besttime.all.order(count: :desc)[0].count%>명)</p>
+<p>2위: <%=@besttime.all.order(count: :desc)[1].gyosi%>(<%= @besttime.all.order(count: :desc)[1].count%>명)</p>
+<p>3위: <%=@besttime.all.order(count: :desc)[2].gyosi%>(<%= @besttime.all.order(count: :desc)[2].count%>명)</p>
+<hr>
+<p>기타 가능시간</p>
+
+  <% @orderedblank.each do |b|%>
+  <%= b.gyosi%> (<%= b.count %>)
+  <br>
+  <% end %> 

@@ -17,17 +17,16 @@
   
   
   <script>
-  $( function() {
+$( function() {
     $( "#selectable" ).selectable({
       stop: function() {
         var result = $( "#select-result" ).empty();
         $( ".ui-selected", this ).each(function() {
           var index = $( "#selectable div" ).index( this );
-          result.append( "/" + ( index + 1 ) );
+          result.append( " /" + ( index + 1 ) );
         });
       }
     });
-    $( "#selectable" ).selectable( "option", "autoRefresh", false );
   } );
   </script>
 </head>
@@ -38,7 +37,7 @@
 </p>
  
 <div class="container" id="selectable">
- 	<% for i in 1..96 do %>
+ 	<% for i in 1..40 do %>
 	 <div class="check"><%="#{i}"%></div>
 	<% end %>
 </div>
