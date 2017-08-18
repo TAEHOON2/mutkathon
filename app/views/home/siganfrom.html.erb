@@ -1,0 +1,38 @@
+<div class="container">
+    <p class="text3"> </p>
+    <%= form_tag home_siganpagecreate_path do %>
+
+    <%= button_to "이날로부터 7일!", home_siganpagecreate_path, method:"post" %>
+        
+     <%= text_field_tag "datepicker", "", class: "hasdatepicker", placeholder: "원하는 날짜를 선택하세요" %>
+            <input type="text" id="datefrom" >
+        
+    <% end %>
+    
+
+ <script>
+ $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+    });
+
+  $(function() {
+            $( "#datepicker" ).datepicker({
+               prevText:"click for previous months",
+               nextText:"click for next months",
+               showOtherMonths:true,
+               selectOtherMonths: false,
+               afterAdjustDate: function () {
+                   $('#datefrom').val($('#datepicker').val());
+               }
+            });
+         });
+        
+         
+  </script>
+</div>

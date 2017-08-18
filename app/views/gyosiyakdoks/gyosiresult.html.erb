@@ -1,6 +1,19 @@
+<article class="mt-0">
+    <p class="text3 mt-4 mb-3">약똑 사용방법</p>
+    <ul>
+      <li>총 참여 인원 : <%=@allparticipants.participants%></li>
+      <li>모든 인원 : 존나초록색</li>
+      <li>75% 이상 : 꽤초록색</li>
+      <li>50% 이상 : 적당한초록색</li>
+      <li>50% 이하 : 약한초록색</li>
+    </ul>
+</article>
+
+<hr>
+
 <div class="container-for-table">
 
-    <table class="table" id="timetable" style="color:black;">
+    <table class="table" id="timetable">
           <thead>
             <tr class="thead-color">
               <th class="timenumber">교시</th>
@@ -14,124 +27,111 @@
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td> <%= @besttime[0].count%> </td>
-              <td> <%= @besttime[10].count%></td>
-              <td> <%= @besttime[20].count%></td>
-              <td> <%= @besttime[30].count%></td>
-              <td> <%= @besttime[40].count%></td>
+              <td> <%= (@besttime[0].count/@allparticipants.participants).round(2)%> </td>
+              <td> <%= (@besttime[10].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[20].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[30].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[40].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">2</th>
-              <td> <%= @besttime[1].count%></td>
-              <td> <%= @besttime[11].count%></td>
-              <td> <%= @besttime[21].count%></td>
-              <td> <%= @besttime[31].count%></td>
-              <td> <%= @besttime[41].count%></td>
+              <td> <%= (@besttime[1].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[11].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[21].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[31].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[41].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">3</th>
-              <td> <%= @besttime[2].count%></td>
-              <td> <%= @besttime[12].count%></td>
-              <td> <%= @besttime[22].count%></td>
-              <td> <%= @besttime[32].count%></td>
-              <td> <%= @besttime[42].count%></td>
+              <td> <%= (@besttime[2].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[12].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[22].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[32].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[42].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">4</th>
-              <td> <%= @besttime[3].count%></td>
-              <td> <%= @besttime[13].count%></td>
-              <td> <%= @besttime[23].count%></td>
-              <td> <%= @besttime[33].count%></td>
-              <td> <%= @besttime[43].count%></td>
+              <td> <%= (@besttime[3].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[13].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[23].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[33].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[43].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">5</th>
-              <td> <%= @besttime[4].count%></td>
-              <td> <%= @besttime[14].count%></td>
-              <td> <%= @besttime[24].count%></td>
-              <td> <%= @besttime[34].count%></td>
-              <td> <%= @besttime[44].count%></td>
+              <td> <%= (@besttime[4].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[14].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[24].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[34].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[44].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">6</th>
-              <td> <%= @besttime[5].count%></td>
-              <td> <%= @besttime[15].count%></td>
-              <td> <%= @besttime[25].count%></td>
-              <td> <%= @besttime[35].count%></td>
-              <td> <%= @besttime[45].count%></td>
+              <td> <%= (@besttime[5].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[15].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[25].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[35].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[45].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">7</th>
-              <td> <%= @besttime[6].count%></td>
-              <td> <%= @besttime[16].count%></td>
-              <td> <%= @besttime[26].count%></td>
-              <td> <%= @besttime[36].count%></td>
-              <td> <%= @besttime[46].count%></td>
+              <td> <%= (@besttime[6].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[16].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[26].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[36].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[46].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">8</th>
-              <td> <%= @besttime[7].count%></td>
-              <td> <%= @besttime[17].count%></td>
-              <td> <%= @besttime[27].count%></td>
-              <td> <%= @besttime[37].count%></td>
-              <td> <%= @besttime[47].count%></td>
+              <td> <%= (@besttime[7].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[17].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[27].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[37].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[47].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">9</th>
-              <td><%= @besttime[8].count%></td>
-              <td><%= @besttime[18].count%></td>
-              <td><%= @besttime[28].count%></td>
-              <td><%= @besttime[38].count%></td>
-              <td><%= @besttime[48].count%></td>
+              <td><%= (@besttime[8].count/@allparticipants.participants).round(2)%></td>
+              <td><%= (@besttime[18].count/@allparticipants.participants).round(2)%></td>
+              <td><%= (@besttime[28].count/@allparticipants.participants).round(2)%></td>
+              <td><%= (@besttime[38].count/@allparticipants.participants).round(2)%></td>
+              <td><%= (@besttime[48].count/@allparticipants.participants).round(2)%></td>
             </tr>
             <tr>
               <th scope="row">10</th>
-              <td> <%= @besttime[9].count%></td>
-              <td> <%= @besttime[19].count%></td>
-              <td> <%= @besttime[29].count%></td>
-              <td> <%= @besttime[39].count%></td>
-              <td> <%= @besttime[49].count%></td>
+              <td> <%= (@besttime[9].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[19].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[29].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[39].count/@allparticipants.participants).round(2)%></td>
+              <td> <%= (@besttime[49].count/@allparticipants.participants).round(2)%></td>
             </tr>
    
           </tbody>
     </table>
- 
-    <div class="actions col-12">
-       
-      <div class="row">
-        
-        <button id="signup_btn" class="btn btn-lg btn-block">
-  
-      </div>
-    </div>
-
-</div>
+ </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>명예의전당</h1>
-<p>1위: <%=@besttime.all.order(count: :desc)[0].gyosi%>(<%= @besttime.all.order(count: :desc)[0].count%>명)</p>
-<p>2위: <%=@besttime.all.order(count: :desc)[1].gyosi%>(<%= @besttime.all.order(count: :desc)[1].count%>명)</p>
-<p>3위: <%=@besttime.all.order(count: :desc)[2].gyosi%>(<%= @besttime.all.order(count: :desc)[2].count%>명)</p>
 <hr>
-<p>기타 가능시간</p>
 
-  <% @orderedblank.each do |b|%>
-  <%= b.gyosi%> (<%= b.count %>)
-  <br>
-  <% end %> 
+<article class="mt-0">
+    <p class="text3 mt-4 mb-3">명예의 전당</p>
+    <p>
+      <strong>1위: <%=@besttime.all.order(count: :desc)[0].gyosi%> (<%= @besttime.all.order(count: :desc)[0].count.to_i%>명)</strong><br>
+      2위: <%=@besttime.all.order(count: :desc)[1].gyosi%> (<%= @besttime.all.order(count: :desc)[1].count.to_i%>명)<br>
+      3위: <%=@besttime.all.order(count: :desc)[2].gyosi%> (<%= @besttime.all.order(count: :desc)[2].count.to_i%>명)
+    </p>
+</article>
+
+<hr>
+
+<article class="mt-0">
+    <p class="text3 mt-4 mb-3">다른 가능한 시간은요?</p>
+    <div class="extra">
+        <% @orderedblank.each do |b|%>
+        <%= b.gyosi%> (<%= b.count.to_i %>명)
+        <br>
+        <% end %> 
+    </div>
+</article>
+
+

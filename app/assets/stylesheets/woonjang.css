@@ -46,21 +46,17 @@
 	}
 
 .container {
-  display: flex;
-  align-content: flex-start;
-  flex-direction: column;
-  flex-wrap: wrap;
-  overflow: auto;
-  height: 530px;
+  /*display: flex;*/
+  /*align-content: flex-start;*/
+  /*flex-direction: column;*/
+  /*flex-wrap: wrap;*/
+  /*overflow: auto;*/
+  /*height: 500px;*/
 }
 
 .drop {
 	width: 100px;
 	height: 10px;
-	text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0px;
-  font-size: 1px;
-  margin-bottom: 1px;
 }
+
+.

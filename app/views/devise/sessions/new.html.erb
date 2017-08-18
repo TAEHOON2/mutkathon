@@ -1,6 +1,6 @@
 <div id="container">
     <div class="text-center hello">
-        <%= image_tag("logo.png", :class=> "logo logo-big") %>
+        <%= image_tag("logo5.png", :class=> "logo logo-big") %>
         <p class="text3 hello_text">복잡한 시간 약속<br>약똑으로 간편하게!</p>
     </div>
     
@@ -24,6 +24,12 @@
             </div>
         </div>
       <% end %>
+      <div class="actions col-12">
+          <div class="row">
+            <button id="facebook_btn" class="btn btn-lg btn-block mt-2"><%= image_tag "facebook-white.png", :class=> "fblogo" %><%= link_to '페이스북으로 간편하게 로그인!', user_facebook_omniauth_authorize_path, :id => "facebook_btn" %></button>
+          </div>
+        </div>
+        
       <div class="row justify-content-between signchoice_btn">
             <div class="col-5 text-left">
                 <%= link_to '회원가입', new_user_registration_path, :id => "text5" %>

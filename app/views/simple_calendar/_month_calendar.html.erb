@@ -1,0 +1,36 @@
+<div class="simple-calendar">
+  <div class="calendar-heading text-center">
+    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+  </div>
+
+  <table class="monthly-table text-center">
+    <thead>
+      <tr>
+        <th>월요일</th>
+        <th>화요일</th>
+        <th>수요일</th>
+        <th>목요일</th>
+        <th>금요일</th>
+        <th>토요일</th>
+        <th>일요일</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
+              <% else %>
+                <% block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

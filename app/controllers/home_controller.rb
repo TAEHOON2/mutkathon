@@ -28,7 +28,8 @@ class HomeController < ApplicationController
   #   # redirect_to "/home/gyosipage/#{@yakdok.id}"
    
   # end       태훈파트는 gyosiyakdoks 컨트롤러로 옮겼습니다
-  
+  def siganfrom
+  end
   def siganpagecreate #시간base로 검색하는 것 Yakdokroom 모델에 Yakdok 하나 create시키는 액션
     
     @yakdok= Yakdokroom.create()
@@ -52,10 +53,7 @@ class HomeController < ApplicationController
   
   def siganyakdokcreate
     @myroom = params[:roomnumber]
-    @count = ""
-    @count = params[:count]
-    @sigan = "123/32/125/162/252/153/124"
-    @siganyakdok= Siganyakdok.create(count: @count, sigan: @sigan, roomnumber: params[:roomnumber])
+    @siganyakdok= Siganyakdok.create(count: params[:resultNum], sigan: params[:sigan], roomnumber: params[:roomnumber])
     redirect_to controller: 'home', action: 'siganresult', yakdokroom: @myroom
   end
   
@@ -68,13 +66,10 @@ class HomeController < ApplicationController
        @howmany = 0
        @k.each do |x|
        if x["roomnumber"] == @myroom
-       @count = ""
-       @count = x["count"]
        @sum << x["sigan"]
        @howmany = @howmany + 1
        end
        end 
-       @days = @count.to_i * 40
        @chose = ""
        @sum.each do |x|
        @chose = x + "/" + @chose
@@ -86,7 +81,7 @@ class HomeController < ApplicationController
        @halfpossible = []
        @notpossible = []
 
-         for i in 1..@days
+         for i in 1..280
         if @choseparse.count("#{i}") == @howmany
            @allpossible << i
         elsif @choseparse.count("#{i}") >= @howmany * 0.75
@@ -123,11 +118,13 @@ class HomeController < ApplicationController
   #     @chosensigan.each do |x|
   #     @yakdokmatrix[x[0]][x[1]] = @yakdokmatrix[x[0]][x[1]] + 1
   #   end
+   def jungbosujung
+   end
    def usersigancreate
       # @count = ""
       # @count = params[:count]
       @sigan = params[:sigan]
-      Usersigan.create(sigan: @sigan)
+      Usersigan.create(sigan: @sigan, user: current_user, email: current_user.email)
       redirect_to '/'
     end
   

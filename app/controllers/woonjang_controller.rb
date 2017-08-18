@@ -7,4 +7,8 @@ class WoonjangController < ApplicationController
   
   def sigangiban
   end
+  
+  def calendartry
+  end
+  
 end

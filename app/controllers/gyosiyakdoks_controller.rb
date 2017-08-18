@@ -393,17 +393,18 @@ class GyosiyakdoksController < ApplicationController
         @myyakdok50.save
       end
       
-      
+      @myyakdok1.participants += 1
+      @myyakdok1.save
 
      redirect_to "/gyosiyakdoks/gyosiresult/#{@myyakdok1.roomnumber}"
   end
   
   def gyosiresult
      @gyosiresults= Gyosiyakdok.where(roomnumber: params[:yakdokroom_roomnumber])
-    # @besttime=@gyosiresults.all.order(count: :desc)[0].gyosi
      @besttime=@gyosiresults.all
      @blank=@besttime.where.not(count:0)
      @orderedblank=@blank.all.order(count: :desc)
+     @allparticipants=@besttime.first
      
   end
 end

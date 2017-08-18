@@ -15,3 +15,4 @@
 //= require turbolinks
 //= touch-punch.js
 //= require_tree .
+//= require bootstrap-datepicker

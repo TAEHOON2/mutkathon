@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetings
   root 'home#index'
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get 'woonjang/jtest'
   get 'woonjang/testpage'
   get 'woonjang/sigangiban'
+  get 'woonjang/calendartry'
   
   post 'gyosiyakdoks/gyosipagecreate'
   post 'home/siganpagecreate'
@@ -25,6 +27,9 @@ Rails.application.routes.draw do
   post 'home/usersigancreate'
   get 'home/usersiganinput'
   
+  get 'home/siganfrom'
+  
+  get 'home/jungbosujung'
   
   
   

@@ -1,0 +1,13 @@
+<div class="container">
+    <p class="text3 mt-4 mb-1">여기에 현재 교시 정보 표시</p>
+    <%= button_to "내 교시정보 등록하기!", "#", method:"get" %>
+    <p class="text3 mt-4 mb-1">여기에 현재 시간 기반 정보 표시</p>
+    <%= button_to "시간기반 정보 업데이트 하기", home_usersiganinput_path, method:"get" %>
+</div>
+
+
+ <%= form_tag gyosiyakdoks_gyosiyakdokcreate_path do %>
+        <%= hidden_field_tag "roomnumber", @myroom.roomnumber%>
+        <%= hidden_field_tag "user_id", current_user.id%>
+        <%= button_to "내 교시정보 등록하기!", user_gyosiyakdokcreate_path, :method => "post" %>
+       <% end %>

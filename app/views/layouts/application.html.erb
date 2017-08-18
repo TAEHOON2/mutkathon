@@ -7,10 +7,8 @@
   <%= csrf_meta_tags %>
 <!--<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>-->
 <!--  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="http://threedubmedia.com/inc/js/jquery-1.7.2.js"></script>
 <script src="http://threedubmedia.com/inc/js/jquery.event.drag-2.2.js"></script>
 <script src="http://threedubmedia.com/inc/js/jquery.event.drag.live-2.2.js"></script>
@@ -18,14 +16,24 @@
 <script src="http://threedubmedia.com/inc/js/jquery.event.drop.live-2.2.js"></script>
 <script src="http://threedubmedia.com/inc/js/excanvas.min.js"></script>
   <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
-  <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-  <!--<script src="jquery.ui.touch-punch.min.js"></script>-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="jquery.ui.touch-punch.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"rel = "stylesheet">
+
 </head>
 <body>
   <nav class="main-nav">
     <%=link_to(image_tag("logo.png", :class=> "nav_logo"),root_path) %>
     <!--<%= image_tag  "user_icon.png", :class=> "nav_user" %>-->
-    <%= button_to "login", user_session_path,:class => "main_login", :method => :get %>
+   
+    <% if current_user %>
+        <%= button_to "로그아웃", destroy_user_session_path,:class => "main_login", :method => :delete %>
+        <%= button_to "내 정보", home_jungbosujung_path,:class => "main_login", :method => :get %>
+    <% else %>
+        <%= button_to "로그인", user_session_path,:class => "main_login", :method => :get %>
+    <% end %>
+    
   </nav>
   <%= yield %>
 </body>

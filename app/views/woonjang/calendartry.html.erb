@@ -1,0 +1,26 @@
+
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+    $("#selectBtn").click(function(){
+    	var result = $("#datepicker").datepicker( "option", "dateFormat", "yymmdd" ).val();
+    	var array = new Array();
+    	array.push(result);
+    	 $("#resultNum").val(result);
+  });
+  } );
+  
+  </script>
+</head>
+<body>
+ 
+<div id="datepicker"></div>
+<h1>약똑 table</h1>
+
+<%= form_tag home_siganyakdokcreate_path do %>
+ <%= text_field_tag 'resultNum' %>
+ <%= submit_tag %>
+<% end %>
+
+
+<button type="button" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>

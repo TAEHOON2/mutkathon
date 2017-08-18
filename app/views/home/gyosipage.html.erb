@@ -1,16 +1,61 @@
-<%= form_tag gyosiyakdoks_gyosiyakdokcreate_path do %>
-<header class="header">
-    <a href="/" class="logo"><%= image_tag("logo.png") =%> </a>
-</header>
 
+
+
+<script>
+jQuery(function($){
+	$( document )
+		.drag("start",function( ev, dd ){
+			return $('<div class="selection" />')
+				.css('opacity', .65 )
+				.appendTo( document.body );
+		})
+		.drag(function( ev, dd ){
+			$( dd.proxy ).css({
+				top: Math.min( ev.pageY, dd.startY ),
+				left: Math.min( ev.pageX, dd.startX ),
+				height: Math.abs( ev.pageY - dd.startY ),
+				width: Math.abs( ev.pageX - dd.startX )
+			});
+		})
+		.drag("end",function( ev, dd ){
+			$( dd.proxy ).remove();
+		});
+		
+	$('.table td')
+		.drop("start",function(){
+			$( this ).addClass("active");
+		})
+		.drop(function( ev, dd ){
+			$( this ).toggleClass("dropped");
+			if(document.getElementById('dropped').checked) {
+      $(this).checked();
+      } else {
+      $(this).unchecked();
+      };
+  		});
+		.drop("end",function(){
+			$( this ).removeClass("active");
+		});
+	$.drop({ multi: true });
+	
+
+
+
+
+});	
+</script>
+
+
+<%= form_tag gyosiyakdoks_gyosiyakdokcreate_path do %>
 <article>
-  <p class="text3 tableheader">아래의 주소를 친구들에게 보내서 함께 약똑을 잡아보세요!</p>
-  <p class="text4">https://yakdok-rails-five-ahnroonjang.c9users.io/home/gyosipage/<%= @myroom.roomnumber%></p>
+  <p class="text4">아래의 주소를 친구들에게 보내서<br> 함께 약똑을 잡아보세요!</p>
+  <p class="text6">https://yakdok-rails-five-ahnroonjang.c9users.io/home/gyosipage/<%= @myroom.roomnumber%></p>
+  <p class="text4">** 가능한 시간 드래그 후 완료 버튼 클릭! **<p>
 </article>
 
 <hr>
 
-<h3>가능한 시간을 드래그하고 완료버튼 눌러라</h3>
+
 <div class="container-for-table">
 
     <table class="table" id="timetable">
@@ -112,18 +157,10 @@
     <div class="actions col-12">
        
       <div class="row">
-        
-        <button id="signup_btn" class="btn btn-lg btn-block">
-  
+        <%= hidden_field_tag "roomnumber", @myroom.roomnumber%>
+        <%= button_to "추가하기", gyosiyakdoks_gyosiyakdokcreate_path, :method => "post", :id => "signup_btn", :class => "btn btn-lg btn-block" %>
+       <% end %>
       </div>
     </div>
 
 </div>
-     <%= hidden_field_tag "roomnumber", @myroom.roomnumber%>
-     <%= button_to "추가하기",gyosiyakdoks_gyosiyakdokcreate_path, method:"post" %></button>
-     <% end %>
-
-
-
-
- 

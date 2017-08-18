@@ -1,24 +1,87 @@
-<h1>이 주소를 복사하여 시간 함께 맞추고 싶은 자들에게 뿌려라</h1>
-<h2>yakdok-rails-five-ahnroonjang.c9users.io/home/siganpage/<%= @myroom.roomnumber%></h2>
-<br>
+<div class="container">
+  <h1>다음 URL을 맞출 사람한테 뿌리세요~</h1>
+  <h2>yakdok-rails-five-ahnroonjang.c9users.io/home/siganpage/<%= @myroom.roomnumber%></h2>
+  <br>
+  
+  
+  
+  <p> 되는 시간을 체크/드래그해라</p>
+  <hr>
+  <p>테 이 블</p>
+  <% @nalja = "" %>
+  <% if current_user.present? %>
+  <%= @chosensigan = Usersigan.find_by(user: current_user).sigan %>
+  <!--if 구문 추가해서 만약 로그인 상태라면 본인 시간 사용할 수 있게 하도록! 기존 정보 사용이 가능합니다 라는 내용 추가
+  및 @chosensigan에 기존 정보 가져오게 할 것-->
+  <% else %>
+  <%= @chosensigan = "" %> <!--여기서는 주는 값 받을 것-->
+  <%= @chosensigan = "24/13/15/178/154/124" %>
+  <% end %>
+  <hr>
+  
+  
+    <%= form_tag home_siganyakdokcreate_path do %>
+      <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
+      <%= hidden_field_tag "sigan", @chosensigan %>
+      <%= hidden_field_tag "count", @nalja %>
+      <%= button_to "추가하기", home_siganyakdokcreate_path, method:"post" %>
+     <% end %>
+     
+  
+</div>
 
 
+<script>
+jQuery(function($){
+	$( document )
+		.drag("start",function( ev, dd ){
+			return $('<div class="selection" />')
+				.css('opacity', .65 )
+				.appendTo( document.body );
+		})
+		.drag(function( ev, dd ){
+			$( dd.proxy ).css({
+				top: Math.min( ev.pageY, dd.startY ),
+				left: Math.min( ev.pageX, dd.startX ),
+				height: Math.abs( ev.pageY - dd.startY ),
+				width: Math.abs( ev.pageX - dd.startX )
+			});
+		})
+		.drag("end",function( ev, dd ){
+			$( dd.proxy ).remove();
+		});
+		
+	$('.drop')
+		.drop("start",function(){
+			$( this ).addClass("active");
+		})
+		.drop(function( ev, dd ){
+			$( this ).toggleClass("dropped");
+		})
+		.drop("end",function(){
+			$( this ).removeClass("active");
+		});
+			
+	$.drop({ multi: true });
+	
+	$("#selectBtn").click(function(){
+		var result = $(".dropped").text();
+		var array = new Array();
+		array.push(result);
+		 $("#resultNum").val(array);
+	});
+});	
 
-<p> 되는 시간을 체크/드래그해라</p>
-<hr>
-<p>테 이 블</p>
-<!--if 구문 추가해서 만약 로그인 상태라면 본인 시간 사용할 수 있게 하도록! 기존 정보 사용이 가능합니다 라는 내용 추가
-및 @chosensigan에 기존 정보 가져오게 할 것-->
-<%= @chosensigan = "" %>
-<%= @chosensigan = "24/13/15/178/154/124" %>
-<%= @nalja = "" %>
-<%= @nalja = "7" %> <!--며칠인지 추가-->
-<hr>
+</script>
+<%= form_tag home_siganyakdokcreate_path do %>
+ <%= text_field_tag 'resultNum' %>
+ <%= submit_tag %>
+<% end %>
 
+<button type="button" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
 
-  <%= form_tag home_siganyakdokcreate_path do %>
-    <%=hidden_field_tag "roomnumber", @myroom.roomnumber%>
-    <%= hidden_field_tag "sigan", @chosensigan %>
-    <%= hidden_field_tag "count", @nalja %>
-    <%= button_to "추가하기", home_siganyakdokcreate_path, method:"post" %>
-   <% end %>
+<div class="container" id="select-table">
+ 	<% for i in 1..10 do %>
+	 <div class="drop" ><%="#{i}"%>/</div>
+	<% end %>	
+</div>
